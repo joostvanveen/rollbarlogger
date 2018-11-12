@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="joostvanveen" type="text" translate="label" sortOrder="010" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Rollbar logger</label>
+            <tab>advanced</tab>
+            <resource>Joostvanveen_RollbarLogger::cms_joostvanveenrollbarlogger</resource>
+            <group id="rollbarlogger" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Rollbar configuration Joostvanveen\RollbarLogger</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable logging to Rollbar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="environment" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Rollbar environment</label>
+                    <comment>The environment variable to log to Rollbar. Typically a value like 'development', 'staging' or 'production'.</comment>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="token" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Rollbar post_server_item token</label>
+                    <comment>The server token for this store. You can find it in your project settings at rollbar.com, under project access tokens.</comment>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="mage_mode_development" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log to Rollbar in development mode</label>
+                    <comment>Send errors to Rollbar in development mode</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="log_level" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log Level</label>
+                    <comment>Minimum log level to send to Rollbar</comment>
+                    <source_model>Joostvanveen\RollbarLogger\Model\Config\Source\LogLevel</source_model>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="include_packages" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Include packages</label>
+                    <comment>Send the version numbers of specific composer packages to Rollbar, when logging. Use their composer name, like 'onestepcheckout/iosc' or 'joostvanveen/rollbarlogger'. One parameter per line.</comment>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="exclude_strings" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude strings</label>
+                    <comment>Do not log messages containing these strings. Enables you to not log less useful messages, for instance those containing 'Add of item', or 'Remove on item'. One string per line.</comment>
+                    <depends>
+                        <field id="*/rollbar/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <joostvanveen>
+            <rollbarlogger>
+                <token></token>
+                <enabled>0</enabled>
+                <environment></environment>
+                <mage_mode_development>0</mage_mode_development>
+                <log_level>300</log_level>
+                <include_packages>onestepcheckout/iosc</include_packages>
+                <exclude_strings>Add of item
+Remove on item</exclude_strings>
+            </rollbarlogger>
+        </joostvanveen>
+    </default>
+</config>

@@ -1,0 +1,56 @@
+############ Project specific rules ###############
+
+################# Global rules ####################
+## Never ignore .gitignore
+!.gitignore
+
+## Dependencies
+node_modules
+bower_components
+vendor
+.vagrant
+*.swp
+*.swo
+/local.yml
+
+## Sass
+.sass-cache
+
+## IDE project files
+/.idea
+.viminfo
+/.buildpath
+/.settings
+/.project
+/.cache
+/build
+/nbbuild
+/nbdist
+/nbproject/private
+
+## OS specific files
+.DS_Store
+.DS_Store?
+Thumbs.db
+.log
+.sass-cache/
+.codekit-config.json
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*.swp
+
+## Zipped files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Always Version .keep and .gitkeep files
+!.keep
+!.gitkeep

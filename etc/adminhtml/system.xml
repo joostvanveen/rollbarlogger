@@ -3,7 +3,7 @@
     <system>
         <section id="joostvanveen" type="text" translate="label" sortOrder="010" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>Rollbar logger</label>
+            <label>Joostvanveen Rollbar logger</label>
             <tab>advanced</tab>
             <resource>Joostvanveen_RollbarLogger::cms_joostvanveenrollbarlogger</resource>
             <group id="rollbarlogger" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">

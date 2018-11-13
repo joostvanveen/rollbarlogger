@@ -9,7 +9,7 @@
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config" title="Configuration" translate="title" sortOrder="20">
                             <resource id="Magento_Config::advanced">
-                                <resource id="Joostvanveen_RollbarLogger::cms_joostvanveenrollbarlogger" title="Rollbar Logger"
+                                <resource id="Joostvanveen_RollbarLogger::cms_joostvanveenrollbarlogger" title="Joostvanveen Rollbar Logger"
                                           sortOrder="12"/>
                             </resource>
                         </resource>

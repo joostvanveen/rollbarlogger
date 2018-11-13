@@ -3,6 +3,7 @@
 namespace Joostvanveen\RollbarLogger\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\ObjectManager;
 use Magento\Store\Model\ScopeInterface;
 
 /**
@@ -13,6 +14,8 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Data extends AbstractHelper
 {
+
+    const MODULES_CACHE_ID = 'rollbar_modules';
 
     /**
      * @var State
@@ -33,7 +36,8 @@ class Data extends AbstractHelper
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\State $appState,
-        \Joostvanveen\RollbarLogger\Helper\StringToArray $stringToArrayHelper
+        \Joostvanveen\RollbarLogger\Helper\StringToArray $stringToArrayHelper,
+        \Magento\Framework\App\CacheInterface $cache
     )
     {
         parent::__construct($context);
@@ -41,6 +45,7 @@ class Data extends AbstractHelper
         defined('C_RB_LOG_PACKAGES') || define('C_RB_LOG_PACKAGES', $stringToArrayHelper->configSettingToArray('joostvanveen/rollbarlogger/include_packages'));
         defined('C_RB_EXCLUDE_STRINGS') || define('C_RB_EXCLUDE_STRINGS', $stringToArrayHelper->configSettingToArray('joostvanveen/rollbarlogger/exclude_strings'));
         $this->appState = $appState;
+        $this->cache = $cache;
 
         $this->stringToArrayHelper = $stringToArrayHelper;
     }
@@ -116,6 +121,8 @@ class Data extends AbstractHelper
      */
     public function getModuleVersions()
     {
+        $this->moduleVersions = json_decode($this->cache->load(self::MODULES_CACHE_ID), true);
+
         if ($this->moduleVersions !== null) {
             return $this->moduleVersions;
         }
@@ -132,6 +139,8 @@ class Data extends AbstractHelper
                 $this->moduleVersions['_magento_version'] = $package['version'];
             }
         }
+
+        $this->cache->save(json_encode($this->moduleVersions), self::MODULES_CACHE_ID, [], 86400);
 
         return $this->moduleVersions;
     }

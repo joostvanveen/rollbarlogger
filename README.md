@@ -27,3 +27,5 @@ Available settings in Magento admin panel: Stores › Config › Advanced ›�
 * Anything logged to Magento is logged by overwriting Magento\Framework\Logger\Monolog.
 * Includes settings in admin.
 * Logs message, customer (if logged in), Magento version and versions for specific modules (set in config)
+
+Thanks to the inspirational work of justbetter/magento2-sentry.

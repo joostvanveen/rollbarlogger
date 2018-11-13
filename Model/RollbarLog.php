@@ -187,7 +187,7 @@ class RollbarLog extends Monolog
         ];
         if (($user = $this->getCurrentUser())) {
             $config['person'] = [
-                'id' => $user->getEmail(),
+                'id' => preg_replace("/(?!^).(?=[^@]+@)/", "*", $user->getEmail()),
             ];
         }
 

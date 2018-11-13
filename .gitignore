@@ -1,4 +1,5 @@
 ############ Project specific rules ###############
+/TODO.md
 
 ################# Global rules ####################
 ## Never ignore .gitignore

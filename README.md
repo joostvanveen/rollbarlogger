@@ -20,6 +20,15 @@ Available settings in Magento admin panel: Stores › Config › Advanced ›�
 
 ## Changelog
 
+### [0.2.2] - 2018-11-15
+#### Added
+* Scramble email for privacy
+* Cache module versions
+
+### [0.2.1] - 2018-11-13
+#### Added
+* MIT License
+
 ### [0.2.0] - 2018-11-12
 #### Added
 * Created working Joostvanveen_RollbarLogger.

@@ -1,6 +1,6 @@
 {
     "name": "joostvanveen/rollbarlogger",
-    "version": "0.2.0",
+    "version": "0.2.2",
     "description": "Logs Magento 2 errors and exceptions to Rollbar.com.",
     "homepage": "https://github.com/joostvanveen/rollbarlogger",
     "type": "magento2-module",

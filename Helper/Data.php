@@ -159,4 +159,8 @@ class Data extends AbstractHelper
 
         return [];
     }
+
+    public function scrambleEmail ($email) {
+        return preg_replace("/(?!^).(?=[^@]+@)/", "*", $email);
+    }
 }
